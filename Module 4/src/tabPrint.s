@@ -1,9 +1,8 @@
 #
-#Program Name: asgn4.s
+#Program Name: tabPrint.s
 #Author: Eddy Wen
 #Date:02/14/2026
-#Purpose: This program prints out Hello World 
-#
+#Purpose: This program prints a string with a number surrounded by tabs.
 
 .text
 .global main
@@ -20,4 +19,4 @@ main:
   MOV pc, lr
 
 .data
-  helloWorld: .asciz "Hello World\n"
+  helloWorld: .asciz "There are\t 2\t tabs in this string\n"

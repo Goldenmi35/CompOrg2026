@@ -1,9 +1,8 @@
 #
-#Program Name: asgn4.s
+#Program Name: quoteString.s
 #Author: Eddy Wen
 #Date:02/14/2026
-#Purpose: This program takes in user's age as input and then prints out their age 
-#
+#Purpose: This program prints out a quote string
 
 .text
 .global main
@@ -20,4 +19,4 @@ main:
   MOV pc, lr
 
 .data
-  helloWorld: .asciz "Hello World\n"
+  helloWorld: .asciz "This is my output \"Hello World\"\n"
