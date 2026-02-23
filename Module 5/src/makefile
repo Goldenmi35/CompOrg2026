@@ -2,7 +2,7 @@ CC	:= gcc
 CFLAGS	:= -g
 LDFLAGS	:= -g
 
-PROGS	:= celsiusToF fahrenheitToC negateInput feetToInches totalInchesConverter multByTen
+PROGS	:= celsiusToF fahrenheitToC negateInput feetToInches totalInchesConverter multByTen swap
 
 all:	$(PROGS)
 
