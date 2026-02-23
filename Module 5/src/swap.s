@@ -1,8 +1,8 @@
 #
-#Program Name: negateInput.s
+#Program Name: swap.s
 #Author: Eddy Wen
 #Date:02/14/2026
-#Purpose: This program negates the input 
+#Purpose: This program swaps two registers using only XOR 
 #
 
 .text

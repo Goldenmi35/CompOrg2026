@@ -1,5 +1,5 @@
 #
-#Program Name: negateInput.s
+#Program Name: feetToInches.s
 #Author: Eddy Wen
 #Date:02/14/2026
 #Purpose: This program converts feet/inches to total inches 

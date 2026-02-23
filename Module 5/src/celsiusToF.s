@@ -1,5 +1,5 @@
 #
-#Program Name: userPrompt.s
+#Program Name: celsiusToF.s
 #Author: Eddy Wen
 #Date:02/14/2026
 #Purpose: This program converts from C to F 

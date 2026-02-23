@@ -1,8 +1,8 @@
 #
-#Program Name: negateInput.s
+#Program Name: totalInchesConverter.s
 #Author: Eddy Wen
 #Date:02/14/2026
-#Purpose: This program negates the input 
+#Purpose: This program converts total inches to feet and inches 
 #
 
 .text
