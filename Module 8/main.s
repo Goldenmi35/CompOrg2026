@@ -1,14 +1,20 @@
+#
+#Program Name: main.s
+#Program Author: Eddy Wen
+#Date: 03/14/2026
+#Purpose: This program tests the functions in libFunctions.s
+
 .section .text
 .global main
-.extern printf
-.extern scanf
 .extern miles2kilometers
 .extern kph
 .extern CToF
 .extern InchesToFeet
 
 main:
-  sub sp, sp, #8
+  SUB sp, sp, #4
+  STR lr, [sp, #0] 
+
   @Get miles as input
   ldr r0, =prompt_miles
   bl printf
@@ -34,13 +40,20 @@ main:
   ldr r0, =fmt_in
   ldr r1, =hours
   bl scanf
+  
+  ldr r0, =prompt_miles
+  bl printf
+
+  ldr r0, =fmt_in
+  ldr r1, =miles
+  bl scanf
 
   ldr r0, =hours
   ldr r0, [r0]
 
   ldr r1, =miles
   ldr r1, [r1]
-
+  
   bl kph
 
   @print kph
@@ -82,10 +95,9 @@ main:
   ldr r0, =out_ft
   bl printf
 
-  mov r0, #0
-  sub sp, sp, #8
-  bx lr
-
+  LDR lr, [sp, #0]
+  ADD sp, sp, #4
+  MOV pc, lr
 
 .section .data
 prompt_miles:	.asciz "Enter miles: "
