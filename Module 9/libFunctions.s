@@ -1,4 +1,9 @@
-@ libFunctions.s
+@Program Name: libFunctions.s
+@Author Name: Eddy Wen
+@Description: This is the library that contains the listed functions. Two of them check for alphabetical keys, one returns the greatest number, and one tries to get a student and numerical value then returns a grade
+@
+@
+
 .text
 .align 2
 .global ChkAlphaLOG

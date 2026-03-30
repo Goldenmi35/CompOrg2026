@@ -1,25 +1,14 @@
-@ main.s
+@Program Name: main.s
+@Author: Eddy Wen
+@Description: This is the main function which acts like a driver. Takes in some input and then outputs the function as way of error checking
+@
+
 .extern ChkAlphaLOG
 .extern ChkAlphaNOLOG
 .extern findMAXOf3
 .extern Grade
 .extern printf
 .extern scanf
-
-.data
-    prompt_char:    .asciz "\nEnter a character: "
-    prompt_nums:    .asciz "Enter 3 integers (space separated): "
-    prompt_student: .asciz "Enter student name: "
-    prompt_score:   .asciz "Enter student score: "
-    fmt_char:       .asciz " %c"
-    fmt_int:        .asciz "%d"
-    fmt_str:        .asciz "%s"
-    res_alpha:      .asciz "Result: %c\n"
-    res_max:        .asciz "Maximum value: %d\n"
-    res_grade:      .asciz "Student: %s, Grade: %c\n"
-    err_msg:        .asciz "Error: Invalid Score\n"
-    
-    student_name:   .skip 64
 
 .text
 .global main
@@ -98,3 +87,18 @@ main:
 .done:
     add sp, sp, #16
     pop {r4, pc}
+
+.data
+    prompt_char:    .asciz "\nEnter a character: "
+    prompt_nums:    .asciz "Enter 3 integers (space separated): "
+    prompt_student: .asciz "Enter student name: "
+    prompt_score:   .asciz "Enter student score: "
+    fmt_char:       .asciz " %c"
+    fmt_int:        .asciz "%d"
+    fmt_str:        .asciz "%s"
+    res_alpha:      .asciz "Result: %c\n"
+    res_max:        .asciz "Maximum value: %d\n"
+    res_grade:      .asciz "Student: %s, Grade: %c\n"
+    err_msg:        .asciz "Error: Invalid Score\n"
+    
+    student_name:   .skip 64
