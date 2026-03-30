@@ -11,16 +11,22 @@
 .global findMAXOf3
 .global Grade
 
-@ 1. Logic-based check
 ChkAlphaLOG:
-    cmp r0, #'A'
+    @ Create a copy of the input character
+    mov r1, r0
+    
+    @ Logical OR with 0x20 (32) forces the character to be lowercase
+    @ This alows us to check both A-Z and a-z in one range check.
+    orr r1, r1, #0x20
+    
+    @ Now we only need to check if 'a' <= r1 <= 'z'
+    cmp r1, #'a'
     blt .not_alpha_log
-    cmp r0, #'z'
+    cmp r1, #'z'
     bgt .not_alpha_log
-    cmp r0, #'Z'
-    ble .is_alpha_log
-    cmp r0, #'a'
-    bge .is_alpha_log
+    
+    mov r0, #'Y'
+    bx lr
 .not_alpha_log:
     mov r0, #'N'
     bx lr
