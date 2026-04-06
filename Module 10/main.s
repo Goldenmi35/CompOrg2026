@@ -7,14 +7,14 @@
 .extern printf, scanf, rand, srand, time
 
 .section .data
-// ---- Shared formats ----
+@ ---- Shared formats ----
 input_fmt:        .asciz "%d"
 prime_fmt:        .asciz "%d "
 
-// ---- Prime program ----
+@ ---- Prime program ----
 prompt_n:         .asciz "Enter n: "
 
-// ---- Guessing game ----
+@ ---- Guessing game ----
 prompt_max:       .asciz "\nEnter maximum value: "
 prompt_guess:     .asciz "Enter your guess: "
 high_msg:         .asciz "Too high\n"
@@ -27,11 +27,11 @@ count_msg:        .asciz "Total guesses: %d\n"
 main:
     push {lr}
 
-    // =========================
-    // PART 1: PRIME NUMBERS
-    // =========================
+    @ =========================
+    @ PART 1: PRIME NUMBERS
+    @ =========================
 
-    // prompt for n
+    @ prompt for n
     ldr r0, =prompt_n
     bl printf
 
@@ -39,26 +39,26 @@ main:
     mov r1, sp
     ldr r0, =input_fmt
     bl scanf
-    ldr r4, [sp]        // r4 = n
+    ldr r4, [sp]        @ r4 = n
     add sp, sp, #4
 
-    mov r5, #3          // i = 3
+    mov r5, #3          @ i = 3
 
 prime_outer:
     cmp r5, r4
     bgt prime_done
 
-    mov r6, #1          // isPrime = 1
-    mov r7, #2          // j = 2
+    mov r6, #1          @ isPrime = 1
+    mov r7, #2          @ j = 2
 
 prime_inner:
     mov r8, r5
-    lsrs r9, r5, #1     // r9 = i/2
+    lsrs r9, r5, #1     @ r9 = i/2
 
     cmp r7, r9
     bgt prime_check
 
-    mov r10, r5         // temp = i
+    mov r10, r5         @ temp = i
 
 prime_rem_loop:
     cmp r10, r7
@@ -70,7 +70,7 @@ prime_rem_done:
     cmp r10, #0
     bne prime_next_j
 
-    mov r6, #0          // not prime
+    mov r6, #0          @ not prime
     b prime_check
 
 prime_next_j:
@@ -91,16 +91,16 @@ prime_next_i:
 
 prime_done:
 
-    // =========================
-    // PART 2: GUESSING GAME
-    // =========================
+    @ =========================
+    @ PART 2: GUESSING GAME
+    @ =========================
 
-    // seed random
+    @ seed random
     mov r0, #0
     bl time
     bl srand
 
-    // prompt max
+    @ prompt max
     ldr r0, =prompt_max
     bl printf
 
@@ -108,10 +108,10 @@ prime_done:
     mov r1, sp
     ldr r0, =input_fmt
     bl scanf
-    ldr r4, [sp]        // r4 = max (reuse safely)
+    ldr r4, [sp]        @ r4 = max (reuse safely)
     add sp, sp, #4
 
-    // target = rand() % max + 1
+    @ target = rand() % max + 1
     bl rand
     mov r1, r4
 
@@ -122,8 +122,8 @@ mod_loop:
     b mod_loop
 
 mod_done:
-    add r5, r0, #1      // r5 = target
-    mov r6, #0          // guess count
+    add r5, r0, #1      @ r5 = target
+    mov r6, #0          @ guess count
 
 guess_loop:
     ldr r0, =prompt_guess
@@ -133,7 +133,7 @@ guess_loop:
     mov r1, sp
     ldr r0, =input_fmt
     bl scanf
-    ldr r7, [sp]        // guess
+    ldr r7, [sp]        @ guess
     add sp, sp, #4
 
     add r6, r6, #1
